@@ -1,0 +1,47 @@
+OBJECT Codeunit 50001 Library Codeunit
+{
+  OBJECT-PROPERTIES
+  {
+    Date=03/10/17;
+    Time=[ 8:16:08 PM];
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+          END;
+
+  }
+  CODE
+  {
+
+    PROCEDURE CheckIsExtensionInstalled@50002(ExtensionAppID@50001 : GUID) : Boolean;
+    VAR
+      IsInstalled@50000 : Boolean;
+    BEGIN
+      IsInstalled := FALSE;
+      IsExtensionInstalled(ExtensionAppID,IsInstalled);
+      EXIT(IsInstalled);
+    END;
+
+    PROCEDURE GetExtension1AppID@50004() : GUID;
+    BEGIN
+      EXIT('743ba26c-1f75-4a2b-9973-a0b77d2c77d3');
+    END;
+
+    PROCEDURE GetExtension2AppID@50005() : GUID;
+    BEGIN
+      EXIT('a618dfa7-3cec-463c-83f7-7d8f6f6d699b');
+    END;
+
+    [Integration]
+    LOCAL PROCEDURE IsExtensionInstalled@50000(ExtensionAppID@50000 : GUID;VAR IsInstalled@50001 : Boolean);
+    BEGIN
+    END;
+
+    BEGIN
+    END.
+  }
+}
+

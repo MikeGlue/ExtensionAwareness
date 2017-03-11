@@ -1,0 +1,30 @@
+OBJECT Codeunit 50004 Test Extensions Installed
+{
+  OBJECT-PROPERTIES
+  {
+    Date=03/10/17;
+    Time=[ 8:21:03 PM];
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=VAR
+            LibraryCodeunit@50000 : Codeunit 50001;
+          BEGIN
+            IF LibraryCodeunit.CheckIsExtensionInstalled(LibraryCodeunit.GetExtension1AppID) THEN
+              MESSAGE('Extension 1 is installed.');
+
+            IF LibraryCodeunit.CheckIsExtensionInstalled(LibraryCodeunit.GetExtension2AppID) THEN
+              MESSAGE('Extension 2 is installed.');
+          END;
+
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

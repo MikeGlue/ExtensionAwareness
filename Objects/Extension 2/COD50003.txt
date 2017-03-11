@@ -1,0 +1,32 @@
+OBJECT Codeunit 50003 Extension 2 Codeunit
+{
+  OBJECT-PROPERTIES
+  {
+    Date=03/10/17;
+    Time=[ 8:22:53 PM];
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+          END;
+
+  }
+  CODE
+  {
+
+    [EventSubscriber(Codeunit,50001,IsExtensionInstalled)]
+    LOCAL PROCEDURE OnCheckIsExtensionInstalled@50000(ExtensionAppID@50000 : GUID;VAR IsInstalled@50001 : Boolean);
+    VAR
+      ExtensionHandler@50002 : Codeunit 50001;
+    BEGIN
+      IF ExtensionAppID = ExtensionHandler.GetExtension2AppID THEN
+        IsInstalled := TRUE;
+    END;
+
+    BEGIN
+    END.
+  }
+}
+
